@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>Página BootstrapVue</title>
+    <link type="text/css"rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"></script>
+    <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <b-container>
+        <b-jumbotron header="BootstrapVue" lead="Bootstrap v4 Componentes para Vue.js 2">
+            <p>Más información para visitar el sitio</p>
+            <b-btn variant="primary" href="https://bootstrap-vue.org/">Más información</b-btn>
+        </b-jumbotron>
+        <b-form-group horizontal
+            :label-cols="4" description="Ingrese su nombre." label="Ingrese su nombre">
+            <b-form-input v-model.trim="name"></b-form-input>
+        </b-form-group>
+        <b-alert variant="success" :show="showAlert">Hola {{ name }}</b-alert>
+    </b-container>
+  </div>
+<script>
+window.app = new Vue({
+el: '#app',
+data: {
+name: ''
+},
+computed: {
+showAlert() {
+return this.name.length > 4 ? true : false
+}
+}
+})
+</script>
+</body>
+</html>
